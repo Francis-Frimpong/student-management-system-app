@@ -47,6 +47,15 @@
     <button class="btn btn-primary" id="showLogin">Login</button>
     <button class="btn btn-outline-primary" id="showSignup">Sign Up</button>
   </div>
+  @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
   <!-- LOGIN FORM -->
   <form id="loginForm" method="POST" action="/login">
@@ -74,6 +83,7 @@
     
     <h4 class="text-center mb-3">Sign Up</h4>
 
+    
     <div class="mb-3">
       <label>Full Name</label>
       <input type="text" class="form-control" placeholder="Enter full name" name="name">
@@ -91,7 +101,7 @@
     
     <div class="mb-3">
       <label>Password</label>
-      <input type="password" class="form-control" placeholder="Confirm password" name=password_confirmation>
+      <input type="password" class="form-control" placeholder="Confirm password" name="password_confirmation">
     </div>
 
     <div class="mb-3 role-select">

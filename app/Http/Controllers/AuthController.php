@@ -19,8 +19,9 @@ class AuthController extends Controller
   
     public function register(Request $request)
     {
+        
         $request->validate([
-            'name' => 'required|min:5',
+            'name' => 'required|min:2',
 
             'email' => 'required|email|unique:users,email',
 
@@ -28,17 +29,19 @@ class AuthController extends Controller
 
             'role' => 'required'
         ]);
-            User::create([
-                'name' => $request->name,
+    
+        User::create([
 
-                'email' => $request->email,
+            'name' => $request->name,
 
-                'password' => Hash::make($request->password),
+            'email' => $request->email,
 
-                'role' => $request->role
-            ]);
+            'password' => Hash::make($request->password),
 
-            return redirect('/auth');
+            'role' => $request->role
+        ]);
+
+        return redirect('auth');
 
     }
 
