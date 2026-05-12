@@ -47,16 +47,7 @@
     <button class="btn btn-primary" id="showLogin">Login</button>
     <button class="btn btn-outline-primary" id="showSignup">Sign Up</button>
   </div>
-  @if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
+  
   <!-- LOGIN FORM -->
   <form id="loginForm" method="POST" action="/login">
     @csrf
