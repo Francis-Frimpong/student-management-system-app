@@ -57,7 +57,17 @@ class AuthController extends Controller
             // 3. regenerate session (security best practice)
             $request->session()->regenerate();
 
-            return redirect('/dashboard');
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect('/admin/dashboard');
+            }
+
+            if ($user->role === 'teacher') {
+                return redirect('/teacher/dashboard');
+            }
+
+            return redirect('/parent/dashboard');
         }
 
         // 4. if login fails
