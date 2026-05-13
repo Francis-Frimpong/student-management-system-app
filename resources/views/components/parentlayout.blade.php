@@ -59,9 +59,9 @@
 <div class="sidebar">
   <h4 class="text-center">Parent</h4>
   <a href="{{ route('parent.dashboard') }}">Dashboard</a>
-  <a href="#" onclick="showPage('children')">My Children</a>
-  <a href="#" onclick="showPage('attendance')">Attendance</a>
-  <a href="#" onclick="showPage('messages')">Messages</a>
+  <a href="{{ route('parent.children') }}">My Children</a>
+  <a href="{{ route('parent.attendance') }}">Attendance</a>
+  <a href="{{ route('parent.message') }}">Messages</a>
 </div>
 
 <div class="main">

@@ -1,9 +1,9 @@
 <x-parentlayout>
   <x-slot:title>
     Parent Dashboard
-  <x-slot:title>
+</x-slot:title>
     <!-- Children -->
-  <div id="children" class="hidden">
+  <div id="children">
     <h3>My Children</h3>
 
     <div class="row">

@@ -1,9 +1,9 @@
 <x-parentlayout>
   <x-slot:title>
     Parent Dashboard
-  <x-slot:title>
+  </x-slot:title>
    <!-- Attendance -->
-  <div id="attendance" class="hidden">
+  <div id="attendance">
     <h3>Attendance</h3>
     <div class="card p-3">
       <table class="table">

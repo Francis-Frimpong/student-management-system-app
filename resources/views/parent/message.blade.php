@@ -1,9 +1,9 @@
 <x-parentlayout>
   <x-slot:title>
     Parent Dashboard
-  <x-slot:title>
+</x-slot:title>
  <!-- Messages -->
-  <div id="messages" class="hidden">
+  <div id="messages">
     <h3>Messages</h3>
 
     <div class="card p-3 mb-3">

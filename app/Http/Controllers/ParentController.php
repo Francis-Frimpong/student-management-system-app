@@ -14,6 +14,21 @@ class ParentController extends Controller
         return view('parent.dashboard');
         
     }
+    public function children()
+    {
+        return view('parent.children');
+        
+    }
+    public function attendance()
+    {
+        return view('parent.attendance');
+        
+    }
+    public function message()
+    {
+        return view('parent.message');
+        
+    }
 
     /**
      * Show the form for creating a new resource.

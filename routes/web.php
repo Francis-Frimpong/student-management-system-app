@@ -18,6 +18,9 @@ Route::prefix('parent')
 ->controller(ParentController::class)
 ->group(function(){
     Route::get('/dashboard', 'index')->name('dashboard')->middleware('role:parent');
+    Route::get('/children', 'children')->name('children')->middleware('role:parent');
+    Route::get('/attendance', 'attendance')->name('attendance')->middleware('role:parent');
+    Route::get('/message', 'message')->name('message')->middleware('role:parent');
 
 });
 
