@@ -13,6 +13,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/teacher/dashboard', [TeacherController::class, 'index'])->name('teacher')->middleware('role:teacher');
 
-Route::get('/parent/dashboard', [ParentController::class, 'index'])->name('parent')->middleware('role:parent');
+Route::prefix('parent')
+->name('parent.')
+->controller(ParentController::class)
+->group(function(){
+    Route::get('/dashboard', 'index')->name('dashboard')->middleware('role:parent');
+
+});
 
  

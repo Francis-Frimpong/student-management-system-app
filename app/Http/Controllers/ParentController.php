@@ -11,7 +11,7 @@ class ParentController extends Controller
      */
     public function index()
     {
-        return view('parent');
+        return view('parent.dashboard');
         
     }
 
