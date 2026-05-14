@@ -1,10 +1,11 @@
 <x-teacherlayout>
+  
     <x-slot:title>
       Teacher Dashboard
     </x-slot:title>
 
     <!-- Classes -->
-  <div id="classes" class="hidden">
+  <div id="classes">
     <h3>My Classes</h3>
     <div class="card p-3">
       <table class="table">
@@ -18,4 +19,5 @@
       </table>
     </div>
   </div>
+
 </x-teacherlayout>

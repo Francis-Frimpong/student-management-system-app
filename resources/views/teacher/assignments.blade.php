@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <!-- Assignments -->
-  <div id="assignments" class="hidden">
+  <div id="assignments">
     <h3>Assignments</h3>
 
     <div class="card p-3 mb-3">

@@ -7,7 +7,7 @@
     
         
   <!-- Students -->
-  <div id="students" class="hidden">
+  <div id="students">
     <h3>Students</h3>
     <div class="card p-3">
       <table class="table">

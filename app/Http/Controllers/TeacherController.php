@@ -14,6 +14,26 @@ class TeacherController extends Controller
         return view('teacher.dashboard');
     }
 
+    public function classes()
+    {
+        return view('teacher.classes');
+    }
+
+    public function students()
+    {
+        return view('teacher.students');
+    }
+
+    public function attendance()
+    {
+        return view('teacher.attendance');
+    }
+
+    public function assignments()
+    {
+        return view('teacher.assignments');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

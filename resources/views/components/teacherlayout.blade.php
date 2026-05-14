@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <title>{{ isset($title) ? $title : 'dashboard' }}</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -65,10 +65,10 @@
 <div class="sidebar">
   <h4 class="text-center">Teacher</h4>
   <a href="{{ route('teacher.dashboard') }}">Dashboard</a>
-  <a href="#" onclick="showPage('classes')">My Classes</a>
-  <a href="#" onclick="showPage('students')">Students</a>
-  <a href="#" onclick="showPage('attendance')">Attendance</a>
-  <a href="#" onclick="showPage('assignments')">Assignments</a>
+  <a href="{{ route('teacher.classes') }}">My Classes</a>
+  <a href="{{ route('teacher.students') }}">Students</a>
+  <a href="{{ route('teacher.attendance') }}">Attendance</a>
+  <a href="{{ route('teacher.assignments') }}">Assignments</a>
   
   <!-- Logout Button -->
   <div class="logout-section">

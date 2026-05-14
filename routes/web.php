@@ -30,6 +30,10 @@ Route::prefix('teacher')
 ->controller(TeacherController::class)
 ->group(function(){
     Route::get('/dashboard','index')->name('dashboard')->middleware('role:teacher');
+    Route::get('/classes','classes')->name('classes')->middleware('role:teacher');
+    Route::get('/students','students')->name('students')->middleware('role:teacher');
+    Route::get('/attendance','attendance')->name('attendance')->middleware('role:teacher');
+    Route::get('/assignments','assignments')->name('assignments')->middleware('role:teacher');
 
 });
 
