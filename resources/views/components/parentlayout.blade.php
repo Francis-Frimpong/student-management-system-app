@@ -35,6 +35,17 @@
       color: #fff;
     }
 
+    .sidebar{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logout-section{
+        margin-top: auto;
+        margin-bottom: 15px;
+    }
+
     .main {
       margin-left: 240px;
       padding: 20px;
@@ -55,13 +66,24 @@
 </head>
 <body>
 
-<!-- Sidebar -->
 <div class="sidebar">
   <h4 class="text-center">Parent</h4>
+
   <a href="{{ route('parent.dashboard') }}">Dashboard</a>
   <a href="{{ route('parent.children') }}">My Children</a>
   <a href="{{ route('parent.attendance') }}">Attendance</a>
   <a href="{{ route('parent.message') }}">Messages</a>
+
+  <!-- Logout Button -->
+  <div class="logout-section">
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+
+      <button type="submit" class="btn btn-danger w-100">
+        Logout
+      </button>
+    </form>
+  </div>
 </div>
 
 <div class="main">

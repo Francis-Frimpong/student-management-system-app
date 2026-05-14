@@ -11,8 +11,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/teacher/dashboard', [TeacherController::class, 'index'])->name('teacher')->middleware('role:teacher');
 
+// Parents routes (Grouped)
 Route::prefix('parent')
 ->name('parent.')
 ->controller(ParentController::class)
@@ -24,4 +24,13 @@ Route::prefix('parent')
 
 });
 
- 
+// Teacher routes (Grouped)
+Route::prefix('teacher')
+->name('teacher.')
+->controller(TeacherController::class)
+->group(function(){
+    Route::get('/dashboard','index')->name('dashboard')->middleware('role:teacher');
+
+});
+
+
