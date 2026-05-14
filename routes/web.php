@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
@@ -35,6 +36,20 @@ Route::prefix('teacher')
     Route::get('/attendance','attendance')->name('attendance')->middleware('role:teacher');
     Route::get('/assignments','assignments')->name('assignments')->middleware('role:teacher');
 
+});
+
+// Admin routes (Grouped)
+Route::prefix('admin')
+->name('admin.')
+->controller(AdminController::class)
+->group(function(){
+    Route::get('/dashboard','index')->name('dashboard')->middleware('role:admin');
+    
+    Route::get('/users', 'users')->name('users')->middleware('role:admin');
+
+    Route::get('/classes', 'classes')->name('classes')->middleware('role:admin');
+
+    Route::get('/students', 'students')->name('students')->middleware('role:admin');
 });
 
 

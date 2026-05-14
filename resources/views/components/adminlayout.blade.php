@@ -67,19 +67,19 @@
 
       <ul class="nav flex-column">
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link text-white">Dashboard</a>
+          <a href="{{ route('admin.dashboard') }}" class="nav-link text-white">Dashboard</a>
         </li>
 
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link text-white">Manage Users</a>
+          <a href="{{ route('admin.users') }}" class="nav-link text-white">Manage Users</a>
         </li>
 
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link text-white">Classes</a>
+          <a href="{{ route('admin.classes') }}" class="nav-link text-white">Classes</a>
         </li>
 
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link text-white">Students</a>
+          <a href="{{ route('admin.students') }}" class="nav-link text-white">Students</a>
         </li>
 
       </ul>
