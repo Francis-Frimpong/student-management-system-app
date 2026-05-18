@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Students;
+use App\Models\SchoolClass;
 
 class AdminController extends Controller
 {
@@ -11,7 +14,24 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $totalTeachers = DB::table('users')
+            ->where('role', 'teacher')
+            ->count();
+
+        $totalParents = DB::table('users')
+            ->where('role', 'parent')
+            ->count();
+
+        $totalStudents = Students::count('name');
+        $totalClasses = SchoolClass::count('name');
+
+        return view('admin.dashboard', compact(
+            'totalTeachers',
+            'totalParents',
+            'totalStudents',
+            'totalClasses'
+        ));
+
     }
 
     public function users()
