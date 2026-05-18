@@ -39,10 +39,13 @@ class AdminController extends Controller
         return view('admin.users');
     }
 
+
     public function classes()
     {
         return view('admin.classes');
     }
+
+    
     public function students()
     {
         return view('admin.students');
