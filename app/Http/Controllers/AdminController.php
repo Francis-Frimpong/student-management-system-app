@@ -36,7 +36,10 @@ class AdminController extends Controller
 
     public function users()
     {
-        return view('admin.users');
+          $users = DB::table('users')
+            ->whereIn('role', ['parent', 'teacher'])
+            ->get();
+        return view('admin.users', compact('users'));
     }
 
 

@@ -1,37 +1,51 @@
 <x-adminlayout>
     <x-slot:title>
-      Admin Dashboard
+        Admin Dashboard
     </x-slot:title>
-      <!-- Manage Users -->
-      <div class="card shadow-sm p-4 mb-4">
+
+    <div class="card shadow-sm p-4 mb-4">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4>Manage Users</h4>
-          <button class="btn btn-primary">  <a href="{{ route('admin.addusers') }}" class="nav-link text-white">Add User</a></button>
-          
+            <h4>Manage Users</h4>
+            <a href="{{ route('admin.addusers') }}" class="btn btn-primary">
+                Add User
+            </a>
         </div>
 
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
+        @if ($users->isEmpty())
 
-          <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>john@example.com</td>
-              <td>Teacher</td>
-              <td>
-                <button class="btn btn-warning btn-sm">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <h3 class="text-center text-muted mt-4">
+                No user added
+            </h3>
 
+        @else
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+        @endif
+
+    </div>
 </x-adminlayout>
