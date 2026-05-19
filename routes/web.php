@@ -52,6 +52,8 @@ Route::prefix('admin')
     Route::get('/students', 'students')->name('students')->middleware('role:admin');
 
     Route::get('/addusers', 'create')->name('addusers')->middleware('role:admin');
+
+    Route::post('/addusers', 'store')->name('addusers.store')->middleware('role:admin');
 });
 
 

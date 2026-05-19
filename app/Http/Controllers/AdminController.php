@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Students;
+use App\Models\User;
 use App\Models\SchoolClass;
 
 class AdminController extends Controller
@@ -68,6 +70,28 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+           $request->validate([
+            'name' => 'required|min:2',
+
+            'email' => 'required|email|unique:users,email',
+
+            'password' => 'required|min:8',
+
+            'role' => 'required'
+        ]);
+    
+        User::create([
+
+            'name' => $request->name,
+
+            'email' => $request->email,
+
+            'password' => Hash::make($request->password),
+
+            'role' => $request->role
+        ]);
+
+        return redirect()->route('admin.users');
     }
 
     /**
@@ -99,6 +123,9 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         $users = User::findOrFail($id);
+        $users->delete();
+
+        return redirect()->route('admin.users');
     }
 }
