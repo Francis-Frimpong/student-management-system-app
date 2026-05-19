@@ -40,10 +40,19 @@
     flex-direction: column;
 }
 
-.logout-section{
-    margin-top: auto;
-    margin-bottom: 15px
-}
+    .auth-card {
+          width: 100%;
+          max-width: 420px;
+          background: #fff;
+          border-radius: 12px;
+          padding: 25px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+    .logout-section{
+        margin-top: auto;
+        margin-bottom: 15px
+    }
 
     .main {
       margin-left: 240px;
