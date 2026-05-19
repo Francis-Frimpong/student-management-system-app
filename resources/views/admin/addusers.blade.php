@@ -26,11 +26,6 @@
                 <input type="password" class="form-control" placeholder="Create password" name="password">
             </div>
 
-            <div class="mb-3">
-                <label>Confirm Password</label>
-                <input type="password" class="form-control" placeholder="Confirm password" name="password_confirmation">
-            </div>
-
             <div class="mb-3 role-select">
                 <label>Register as</label>
                 <select class="form-select" name="role">
