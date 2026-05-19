@@ -38,7 +38,17 @@
                             <td>{{ $user->role }}</td>
                             <td>
                                 <button class="btn btn-warning btn-sm">Edit</button>
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                
+                                <form method="POST" 
+                                  action="{{ route('admin.destroy', $user->id) }}" 
+                                  class="d-inline">
+                                  @csrf
+                                  @method('DELETE')
+
+                                  <button class="btn btn-sm btn-danger">
+                                      Delete
+                                  </button>
+                              </form>
                             </td>
                         </tr>
                     @endforeach

@@ -123,7 +123,7 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-         $users = User::findOrFail($id);
+        $users = User::findOrFail($id);
         $users->delete();
 
         return redirect()->route('admin.users');
