@@ -107,7 +107,8 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.edituser');
+        $user = User::findOrFail($id);
+        return view('admin.edituser', compact('user'));
     }
 
     /**
