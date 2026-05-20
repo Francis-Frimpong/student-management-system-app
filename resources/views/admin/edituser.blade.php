@@ -6,7 +6,7 @@
      <div class="container d-flex justify-content-center align-items-center vh-100">
     
     <div class="auth-card">
-        <form  method="POST" action="{{ route('admin.addusers.store', $user->id) }}">
+        <form  method="POST" action="{{ route('admin.update', $user->id) }}">
             @csrf
 
             <h4 class="text-center mb-3">Edit User</h4>

@@ -57,6 +57,8 @@ Route::prefix('admin')
 
     Route::get('/edituser/{id}', 'edit')->name('edit')->middleware('role:admin');
 
+    Route::post('/updateuser/{id}', 'update')->name('update')->middleware('role:admin');
+
 
     Route::delete('/users/{id}', 'destroy')->name('destroy')->middleware('role:admin');
 });

@@ -116,7 +116,33 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|min:2',
+
+            // current user already has email so ignore it ".$user->id"
+            'email' => 'required|email|unique:users,email,' . $user->id,
+
+            'password' => 'nullable|min:8',
+
+            'role' => 'required'
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+        ];
+
+        // Only update password if user entered one
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
+
+        return redirect()->route('admin.users');
     }
 
     /**
