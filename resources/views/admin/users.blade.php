@@ -37,7 +37,9 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role }}</td>
                             <td>
-                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <a class="btn btn-sm btn-warning" href="{{ route('admin.edit', $user->id) }}">
+                            Edit
+                        </a>
                                 
                                 <form method="POST" 
                                   action="{{ route('admin.destroy', $user->id) }}" 

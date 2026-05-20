@@ -55,6 +55,9 @@ Route::prefix('admin')
 
     Route::post('/addusers', 'store')->name('addusers.store')->middleware('role:admin');
 
+    Route::get('/edituser/{id}', 'edit')->name('edit')->middleware('role:admin');
+
+
     Route::delete('/users/{id}', 'destroy')->name('destroy')->middleware('role:admin');
 });
 
