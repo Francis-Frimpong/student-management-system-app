@@ -155,4 +155,10 @@ class AdminController extends Controller
 
         return redirect()->route('admin.users');
     }
+
+    // display add classes page
+    public function addclass()
+    {
+        return view('admin.addclass');
+    }
 }
