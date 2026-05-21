@@ -16,6 +16,11 @@
         </div>
 
         <table class="table table-bordered">
+          @if ($classes->isEmpty())
+            <h3 class="text-center text-muted my-4">
+                No class has been added.
+            </h3>
+          @else
             <thead>
                 <tr>
                     <th>Class</th>
@@ -24,11 +29,15 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Class A</td>
-                    <td>Mr Smith</td>
-                </tr>
+              @foreach ($classes as $class )
+              <tr>
+                  <td>{{ $class->name }}</td>
+                  <td>{{ $class->teacher->name }}</td>
+              </tr>
+                
+              @endforeach
             </tbody>
+          @endif
         </table>
 
     </div>

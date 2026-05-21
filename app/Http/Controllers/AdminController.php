@@ -47,7 +47,8 @@ class AdminController extends Controller
 
     public function classes()
     {
-        return view('admin.classes');
+        $classes = SchoolClass::with('teacher')->get();
+        return view('admin.classes', compact('classes'));
     }
 
     
@@ -159,6 +160,28 @@ class AdminController extends Controller
     // display add classes page
     public function addclass()
     {
-        return view('admin.addclass');
+        $users = DB::table('users')
+        ->select('id', 'name')
+        ->where('role', 'teacher')
+        ->get();
+
+        return view('admin.addclass', compact('users'));
+    }
+
+    public function storeclass(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:2',
+            'teacher_id' => 'required'
+        ]);
+
+        SchoolClass::create([
+            'name' => $request->name,
+            'teacher_id' => $request->teacher_id
+
+        ]);
+
+        return redirect()->route('admin.classes');
+
     }
 }

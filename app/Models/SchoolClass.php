@@ -9,4 +9,14 @@ class SchoolClass extends Model
     //
     protected $table = 'classes';
 
+     protected $fillable = [
+        'name',
+        'teacher_id',
+    ];
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
+
 }

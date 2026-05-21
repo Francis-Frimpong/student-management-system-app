@@ -7,7 +7,8 @@
 
         <div class="auth-card card shadow p-4" style="width: 450px;">
 
-            <form method="POST" action="/addclass">
+            <form method="POST" action="{{ route('admin.addclass') }}">
+                @csrf
 
                 <h3 class="text-center mb-4">Add Class</h3>
 
@@ -23,9 +24,12 @@
 
                     <select class="form-select" name="teacher_id">
                         <option value="">-- Select Teacher --</option>
-                        <option value="1">Mr Smith</option>
-                        <option value="2">Mrs Johnson</option>
-                        <option value="3">Mr Boateng</option>
+                        @foreach ( $users as $user )
+                        
+                            <option value="{{ $user->id }}">{{ $user->name}}</option>
+                            
+                        @endforeach
+                       
                     </select>
                 </div>
 
