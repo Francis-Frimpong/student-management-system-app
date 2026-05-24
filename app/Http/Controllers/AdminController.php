@@ -184,4 +184,8 @@ class AdminController extends Controller
         return redirect()->route('admin.classes');
 
     }
+
+    public function addstudents(){
+        return view('admin.addstudents');
+    }
 }

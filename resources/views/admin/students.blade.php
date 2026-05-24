@@ -5,7 +5,14 @@
        
       <!-- Students -->
       <div class="card shadow-sm p-4 mb-4">
-        <h4 class="mb-3">Students</h4>
+         <!-- Header with button -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Student</h4>
+
+            <a href="{{ route('admin.addstudent')  }}" class="btn btn-primary">
+                + Add Student
+            </a>
+        </div>
 
         <table class="table table-bordered">
           <thead>
