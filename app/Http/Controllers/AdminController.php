@@ -54,7 +54,20 @@ class AdminController extends Controller
     
     public function students()
     {
-        return view('admin.students');
+        $students = Students::all();
+        return view('admin.students', compact('students'));
+    }
+
+
+     public function addstudents(){
+        $schoolclass = SchoolClass::all();
+        
+        $users = DB::table('users')
+        ->select('id', 'name')
+        ->where('role', 'parent')
+        ->get();
+
+        return view('admin.addstudents', compact('users', 'schoolclass'));
     }
 
     /**
@@ -185,14 +198,5 @@ class AdminController extends Controller
 
     }
 
-    public function addstudents(){
-        $schoolclass = SchoolClass::all();
-        
-        $users = DB::table('users')
-        ->select('id', 'name')
-        ->where('role', 'parent')
-        ->get();
-
-        return view('admin.addstudents', compact('users', 'schoolclass'));
-    }
+   
 }

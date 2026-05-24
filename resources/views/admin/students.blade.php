@@ -15,21 +15,31 @@
         </div>
 
         <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Class</th>
-              <th>Parent</th>
-            </tr>
-          </thead>
+          @if ($students->isEmpty())
+             <h3 class="text-center text-muted my-4">
+                No student has been added.
+            </h3>
+          @else
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Parent</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            <tr>
-              <td>Jane Doe</td>
-              <td>Class B</td>
-              <td>Mr Doe</td>
-            </tr>
-          </tbody>
+            <tbody>
+              @foreach ($students as $student )
+              <tr>
+                <td>{{ $student->name }}</td>
+                <td>{{ $student->class->name }}</td>
+                <td>{{ $student->teacher->name }}</td>
+              </tr>
+                
+              @endforeach
+            </tbody>
+            
+          @endif
         </table>
       </div>
 
