@@ -24,6 +24,9 @@
 
                     <select class="form-select" name="class_id">
                         <option value="">-- Select Class --</option>
+                        @foreach ($schoolclass as $class )
+                            <option value="{{ $class->id }}">{{ $class->name }}</option>
+                        @endforeach
                       
                        
                     </select>
@@ -33,6 +36,10 @@
 
                     <select class="form-select" name="user_id">
                         <option value="">-- Select Parent --</option>
+                        
+                        @foreach ($users as $user )
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
 
                        
                     </select>

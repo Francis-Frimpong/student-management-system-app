@@ -186,6 +186,13 @@ class AdminController extends Controller
     }
 
     public function addstudents(){
-        return view('admin.addstudents');
+        $schoolclass = SchoolClass::all();
+        
+        $users = DB::table('users')
+        ->select('id', 'name')
+        ->where('role', 'parent')
+        ->get();
+
+        return view('admin.addstudents', compact('users', 'schoolclass'));
     }
 }
