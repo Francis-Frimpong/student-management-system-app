@@ -32,8 +32,8 @@
               @foreach ($students as $student )
               <tr>
                 <td>{{ $student->name }}</td>
-                <td>{{ $student->class->name }}</td>
-                <td>{{ $student->teacher->name }}</td>
+                <td>{{ $student->studentclass->name }}</td>
+                <td>{{ $student->parent->name }}</td>
               </tr>
                 
               @endforeach
