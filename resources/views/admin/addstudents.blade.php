@@ -7,7 +7,7 @@
 
         <div class="auth-card card shadow p-4" style="width: 450px;">
 
-            <form method="POST" action="{{ route('admin.addclass.storeclass') }}">
+            <form method="POST" action="{{ route('admin.addstudent.storestudent') }}">
                 @csrf
 
                 <h3 class="text-center mb-4">Add Student</h3>
@@ -34,7 +34,7 @@
                 <div class="mb-4">
                     <label class="form-label">Choose Parent</label>
 
-                    <select class="form-select" name="user_id">
+                    <select class="form-select" name="parent_id">
                         <option value="">-- Select Parent --</option>
                         
                         @foreach ($users as $user )

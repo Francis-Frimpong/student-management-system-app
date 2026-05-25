@@ -63,6 +63,8 @@ Route::prefix('admin')
 
     Route::get('/addstudent', 'addstudents')->name('addstudent')->middleware('role:admin');
 
+    Route::post('/addstudent', 'storestudent')->name('addstudent.storestudent')->middleware('role:admin');
+
     Route::post('/updateuser/{id}', 'update')->name('update')->middleware('role:admin');
 
 

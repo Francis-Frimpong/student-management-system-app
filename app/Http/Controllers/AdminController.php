@@ -70,6 +70,30 @@ class AdminController extends Controller
         return view('admin.addstudents', compact('users', 'schoolclass'));
     }
 
+
+    public function storestudent(Request $request){
+         //
+           $request->validate([
+            'name' => 'required|min:2',
+
+            'class_id' => 'required',
+
+            'parent_id' => 'required',
+        ]);
+    
+        Students::create([
+
+            'name' => $request->name,
+
+            'class_id' => $request->class_id,
+
+            'parent_id' => $request->parent_id,
+
+        ]);
+
+        return redirect()->route('admin.students');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -87,7 +111,7 @@ class AdminController extends Controller
            $request->validate([
             'name' => 'required|min:2',
 
-            'email' => 'required|email|unique:users,email',
+            'class_id' => 'required|email|unique:users,email',
 
             'password' => 'required|min:8',
 
