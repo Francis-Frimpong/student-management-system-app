@@ -16,7 +16,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        // Display data of the logged in user if thier id = teacher_id in the classes table.
+        // Display data of the logged in user
 
         $totalClasses = Auth::user()->classes()->count();
 
@@ -29,7 +29,12 @@ class TeacherController extends Controller
 
     public function classes()
     {
-        return view('teacher.classes');
+        $classes = Auth::user()
+        ->classes()
+        ->withCount('students')
+        ->get();
+
+        return view('teacher.classes', compact('classes'));
     }
 
     public function students()
