@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Students;
+
+
+
 
 class TeacherController extends Controller
 {
@@ -11,7 +16,15 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher.dashboard');
+        // Display data of the logged in user if thier id = teacher_id in the classes table.
+
+        $totalClasses = Auth::user()->classes()->count();
+
+        $totalStudents = Students::whereHas('studentclass', function ($query) {
+            $query->where('teacher_id', Auth::id());
+        })->count();
+
+        return view('teacher.dashboard', compact('totalClasses','totalStudents'));
     }
 
     public function classes()

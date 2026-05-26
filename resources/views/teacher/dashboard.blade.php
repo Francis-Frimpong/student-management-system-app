@@ -10,13 +10,13 @@
       <div class="col-md-4">
         <div class="card p-3">
           <h5>Total Classes</h5>
-          <h2>3</h2>
+          <h2>{{$totalClasses}}</h2>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card p-3">
           <h5>Total Students</h5>
-          <h2>45</h2>
+          <h2>{{$totalStudents}}</h2>
         </div>
       </div>
       <div class="col-md-4">
