@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Students;
+use App\Models\Attendance;
 
 
 
@@ -48,9 +49,38 @@ class TeacherController extends Controller
         return view('teacher.students', compact('students'));
     }
 
-    public function attendance()
+  public function attendance()
     {
-        return view('teacher.attendance');
+        $students = Students::whereHas('studentclass', function ($query) {
+            $query->where('teacher_id', Auth::id());
+        })
+        ->with('studentclass')
+        ->get();
+
+        return view('teacher.attendance', compact('students'));
+    }
+
+    public function storeattendance(Request $request)
+    {
+        $request->validate([
+            'attendance' => 'required|array'
+        ]);
+
+        foreach ($request->attendance as $studentId => $status) {
+
+            Attendance::updateOrCreate(
+                [
+                    'student_id' => $studentId,
+                    'date' => now()->toDateString(),
+                ],
+                [
+                    'status' => $status
+                ]
+            );
+
+        }
+
+        return redirect()->back()->with('success', 'Attendance saved successfully');
     }
 
     public function assignments()
