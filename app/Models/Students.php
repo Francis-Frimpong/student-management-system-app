@@ -20,4 +20,6 @@ class Students extends Model
     public function parent(){
         return $this->belongsTo(User::class, 'parent_id');
     }
+
+     
 }

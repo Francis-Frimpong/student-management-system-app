@@ -39,7 +39,13 @@ class TeacherController extends Controller
 
     public function students()
     {
-        return view('teacher.students');
+       $students = Students::whereHas('studentclass', function ($query) {
+            $query->where('teacher_id', Auth::id());
+        })
+        ->with('studentclass')
+        ->get();
+
+        return view('teacher.students', compact('students'));
     }
 
     public function attendance()
