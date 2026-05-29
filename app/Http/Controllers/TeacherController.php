@@ -26,7 +26,9 @@ class TeacherController extends Controller
             $query->where('teacher_id', Auth::id());
         })->count();
 
-        return view('teacher.dashboard', compact('totalClasses','totalStudents'));
+        $totalAssignments = Auth::user()->assignment()->count();
+
+        return view('teacher.dashboard', compact('totalClasses','totalStudents', 'totalAssignments'));
     }
 
     public function classes()

@@ -22,7 +22,7 @@
       <div class="col-md-4">
         <div class="card p-3">
           <h5>Assignments</h5>
-          <h2>8</h2>
+          <h2>{{ $totalAssignments}}</h2>
         </div>
       </div>
     </div>
