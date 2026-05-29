@@ -9,13 +9,14 @@
       <div class="col-md-4">
         <div class="card p-3">
           <h5>Total Children</h5>
-          <h2>2</h2>
+          <h2>{{ $totalChildren }}</h2>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card p-3">
           <h5>Attendance Rate</h5>
-          <h2>95%</h2>
+            <h2>{{$combined}}%</h2>
+            
         </div>
       </div>
     </div>

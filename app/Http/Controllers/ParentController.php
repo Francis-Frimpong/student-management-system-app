@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ParentController extends Controller
 {
@@ -11,7 +14,21 @@ class ParentController extends Controller
      */
     public function index()
     {
-        return view('parent.dashboard');
+        $totalChildren = Auth::user()->students()->count();
+
+        $parentId = Auth::id();
+
+        $combined = Students::where('parent_id', $parentId)
+            ->join('attendances', 'attendances.student_id', '=', 'students.id')
+            ->selectRaw("
+                ROUND(
+                    (SUM(CASE WHEN attendances.status = 'present' THEN 1 ELSE 0 END) * 100.0)
+                    / COUNT(attendances.id),
+                2) as combined_attendance_rate
+            ")
+            ->value('combined_attendance_rate');
+
+        return view('parent.dashboard', compact('totalChildren', 'combined'));
         
     }
     public function children()
