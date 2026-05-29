@@ -87,7 +87,40 @@ class TeacherController extends Controller
     public function assignments()
     {
         $classes = Auth::user()->classes;
-        return view('teacher.assignments', compact('classes'));
+        $assignments = Assignments::where('teacher_id', Auth::id())
+        ->latest()
+        ->get();
+
+        return view('teacher.assignments', compact('classes', 'assignments'));
+    }
+
+    public function storeassignments(Request $request)
+    {
+        // validate data
+        $request->validate([
+            'title'=> 'required|min:5',
+            'description' => 'required',
+            'class_id' => 'required',
+        ]);
+
+         // Check if class belongs to logged-in teacher
+            $class = Auth::user()
+                ->classes()
+                ->where('id', $request->class_id)
+                ->first();
+
+            if (!$class) {
+                abort(403);
+            }
+        // store in database
+        Assignments::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'class_id' => $request->class_id,
+            'teacher_id' => Auth::id(),
+        ]);
+
+          return redirect()->back()->with('success', 'Assignment created successfully');
     }
 
     /**

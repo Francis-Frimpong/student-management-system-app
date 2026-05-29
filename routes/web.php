@@ -39,6 +39,8 @@ Route::prefix('teacher')
 
     Route::get('/assignments','assignments')->name('assignments')->middleware('role:teacher');
 
+    Route::post('/assignments','storeassignments')->name('assignments.storeassignments')->middleware('role:teacher');
+
 });
 
 // Admin routes (Grouped)

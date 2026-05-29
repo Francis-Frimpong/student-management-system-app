@@ -11,6 +11,8 @@ class Assignments extends Model
         'title',
         'description',
         'class_id',
+        'teacher_id'
+
     ];
 
     
