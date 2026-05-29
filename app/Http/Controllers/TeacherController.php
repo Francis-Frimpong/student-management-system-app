@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Students;
 use App\Models\Attendance;
+use App\Models\Assignments;
 
 
 
@@ -85,7 +86,8 @@ class TeacherController extends Controller
 
     public function assignments()
     {
-        return view('teacher.assignments');
+        $classes = Auth::user()->classes;
+        return view('teacher.assignments', compact('classes'));
     }
 
     /**
