@@ -33,7 +33,10 @@ class ParentController extends Controller
     }
     public function children()
     {
-        return view('parent.children');
+        $parent = Auth::user();
+        $children = $parent->children()->with('studentclass')->get();
+
+        return view('parent.children', compact('children'));
         
     }
     public function attendance()
