@@ -228,5 +228,11 @@ class AdminController extends Controller
         return view('admin.messages');
         
     }
+        
+    public function composeMessage()
+    {
+        return view('admin.composeMessage');
+
+    }
    
 }

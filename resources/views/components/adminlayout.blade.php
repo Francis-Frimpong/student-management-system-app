@@ -14,6 +14,14 @@
       background: #f4f6f9;
     }
 
+    .page-container {
+          max-width: 800px;
+          margin: 40px auto;
+    }
+
+    .card {
+          border-radius: 12px;
+    }
 
     .container {
       margin-top: 30px;
