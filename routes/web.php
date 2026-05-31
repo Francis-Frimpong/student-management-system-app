@@ -63,6 +63,9 @@ Route::prefix('admin')
     Route::get('/addclass', 'addclass')->name('addclass')->middleware('role:admin');
     
     Route::post('/addclass', 'storeclass')->name('addclass.storeclass')->middleware('role:admin');
+
+    // messages route
+    Route::get('/messages', 'messages')->name('messages')->middleware('role:admin');
     
     Route::get('/edituser/{id}', 'edit')->name('edit')->middleware('role:admin');
 

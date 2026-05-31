@@ -222,5 +222,11 @@ class AdminController extends Controller
 
     }
 
+
+    public function messages()
+    {
+        return view('admin.messages');
+        
+    }
    
 }

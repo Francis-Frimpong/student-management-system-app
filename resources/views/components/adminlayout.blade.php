@@ -14,6 +14,25 @@
       background: #f4f6f9;
     }
 
+
+    .container {
+      margin-top: 30px;
+    }
+
+    .card {
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .badge-read {
+      background: #28a745;
+    }
+
+    .badge-unread {
+      background: #ffc107;
+      color: black;
+    }
+
     .sidebar {
       height: 100vh;
       width: 240px;
@@ -21,6 +40,8 @@
       background: #1e293b;
       color: white;
       padding-top: 20px;
+      display: flex;
+      flex-direction: column;
     }
 
     .sidebar a {
@@ -34,24 +55,11 @@
       background: #334155;
       color: #fff;
     }
-    .sidebar{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-    .auth-card {
-          width: 100%;
-          max-width: 420px;
-          background: #fff;
-          border-radius: 12px;
-          padding: 25px;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
 
     .logout-section{
-        margin-top: auto;
-        margin-bottom: 15px
+      margin-top: auto;
+      margin-bottom: 15px;
+      padding: 0 15px;
     }
 
     .main {
@@ -63,18 +71,23 @@
       border-radius: 10px;
     }
 
-    .hidden {
-      display: none;
+    .badge-inbox {
+      background: red;
+      font-size: 10px;
+      margin-left: 6px;
     }
   </style>
 </head>
+
 <body>
-    
-    <!-- Sidebar -->
+
+<!-- Sidebar -->
 <div class="sidebar">
+
    <h4 class="text-center mb-4">Admin</h4>
 
-      <ul class="nav flex-column">
+   <ul class="nav flex-column">
+
         <li class="nav-item mb-2">
           <a href="{{ route('admin.dashboard') }}" class="nav-link text-white">Dashboard</a>
         </li>
@@ -91,25 +104,33 @@
           <a href="{{ route('admin.students') }}" class="nav-link text-white">Students</a>
         </li>
 
-      </ul>
-  
-  <!-- Logout Button -->
-  <div class="logout-section">
+        <!-- ✅ NEW INBOX SECTION -->
+        <li class="nav-item mb-2">
+          <a href="{{ route('admin.messages') }}" class="nav-link text-white">
+            Inbox
+            <!-- optional badge -->
+            <span class="badge badge-inbox">0</span>
+          </a>
+        </li>
+
+   </ul>
+
+   <!-- Logout -->
+   <div class="logout-section">
       <form method="POST" action="{{ route('logout') }}">
           @csrf
-          
           <button type="submit" class="btn btn-danger w-100">
               Logout
-            </button>
-        </form>
-    </div>
+          </button>
+      </form>
+   </div>
+
 </div>
 
+<!-- Main Content -->
 <div class="main">
-
     {{ $slot }}
-
-
 </div>
+
 </body>
 </html>
