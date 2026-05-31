@@ -34,6 +34,7 @@ class ParentController extends Controller
     public function children()
     {
         $parent = Auth::user();
+
         $children = $parent->children()->with('studentclass')->get();
 
         return view('parent.children', compact('children'));
@@ -41,7 +42,9 @@ class ParentController extends Controller
     }
     public function attendance()
     {
-        return view('parent.attendance');
+        $children = Auth::user()->children()->with('attendances')->get();
+
+        return view('parent.attendance', compact('children'));
         
     }
     public function message()

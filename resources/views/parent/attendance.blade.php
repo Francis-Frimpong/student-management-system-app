@@ -7,13 +7,27 @@
     <h3>Attendance</h3>
     <div class="card p-3">
       <table class="table">
+        @if ($children->isEmpty())
+            <h3 class="text-center text-muted my-4">
+                Attendance records not found.
+          </h3>
+        @else
         <thead>
           <tr><th>Child</th><th>Date</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr><td>John Doe</td><td>2026-04-01</td><td>Present</td></tr>
-          <tr><td>Jane Doe</td><td>2026-04-01</td><td>Absent</td></tr>
+            @foreach ($children as $child)
+            @foreach ($child->attendances as $attendance)
+                <tr>
+                    <td>{{ $child->name }}</td>
+                    <td>{{ $attendance->date }}</td>
+                    <td>{{ $attendance->status }}</td>
+                </tr>
+            @endforeach
+        @endforeach
         </tbody>
+          
+        @endif
       </table>
     </div>
   </div>
