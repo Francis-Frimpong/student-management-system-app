@@ -6,6 +6,7 @@
   <title>{{ isset($title) ? $title : 'dashboard' }}</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     body {
@@ -120,6 +121,13 @@
             <span class="badge badge-inbox">0</span>
           </a>
         </li>
+      <!-- ✅ NEW SENT SECTION -->
+      <li class="nav-item mb-2">
+        <a href="" class="nav-link text-white">
+          Sent
+          <i class="bi bi-send-fill me-2"></i>
+        </a>
+      </li>
 
    </ul>
 
