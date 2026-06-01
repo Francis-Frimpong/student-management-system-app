@@ -68,6 +68,8 @@ Route::prefix('admin')
     Route::get('/messages', 'messages')->name('messages')->middleware('role:admin');
 
     Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:admin');
+
+    Route::get('/read', 'viewMessage')->name('viewMessage')->middleware('role:admin');
     
     Route::get('/edituser/{id}', 'edit')->name('edit')->middleware('role:admin');
 

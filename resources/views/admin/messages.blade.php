@@ -62,7 +62,7 @@
           <td>28 May 2026 11:05</td>
           <td><span class="badge badge-unread">Unread</span></td>
           <td>
-            <button class="btn btn-sm btn-primary">View</button>
+            <a href="{{ route('admin.viewMessage') }}" class="btn btn-sm btn-primary">View</a>
             <button class="btn btn-sm btn-danger">Delete</button>
           </td>
         </tr>
