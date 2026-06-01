@@ -17,7 +17,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <form>
+                <form method="POST" action="">
 
                     <!-- Recipient -->
                     <div class="mb-3">
@@ -27,22 +27,15 @@
                             <option selected disabled>
                                 --- Select Recipient ---
                             </option>
-
-                            <option>
-                                David Adongo (Teacher)
+                            @foreach ($users as $user)
+                            <option value="{{ $user->id }}">
+                                {{ $user->name}}
+                                ({{ $user->role }})
                             </option>
+                                
+                            @endforeach
 
-                            <option>
-                                Sarah Mensah (Teacher)
-                            </option>
-
-                            <option>
-                                John Doe (Parent)
-                            </option>
-
-                            <option>
-                                Mary Smith (Parent)
-                            </option>
+                          
                         </select>
                     </div>
 

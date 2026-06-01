@@ -231,7 +231,10 @@ class AdminController extends Controller
         
     public function composeMessage()
     {
-        return view('admin.composeMessage');
+        $users = DB::table('users')
+            ->whereIn('role', ['parent', 'teacher'])
+            ->get();
+        return view('admin.composeMessage', compact('users'));
 
     }
 
