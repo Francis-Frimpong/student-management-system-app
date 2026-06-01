@@ -7,7 +7,6 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
   <style>
     body {
       margin: 0;
@@ -118,7 +117,11 @@
           <a href="{{ route('admin.messages') }}" class="nav-link text-white">
             Inbox
             <!-- optional badge -->
-            <span class="badge badge-inbox">0</span>
+             @if($unreadCount > 0)
+                <span class="badge bg-danger">
+                    {{ $unreadCount }}
+                </span>
+            @endif
           </a>
         </li>
       <!-- ✅ NEW SENT SECTION -->
