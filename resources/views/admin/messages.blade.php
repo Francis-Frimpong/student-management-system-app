@@ -40,9 +40,12 @@
                 
             <tr>
               <td>{{$message->sender->name}} ({{$message->sender->role}})</td>
+
               <td>{{ \Illuminate\Support\Str::limit($message->message, 20) }}</td>
+
               <td>{{ $message->created_at}}</td>
               <td><span class="badge {{ $message->status === 'unread' ? 'badge-unread' : 'badge-read' }}">{{$message->status}}</span></td>
+              
               <td>
                 <button class="btn btn-sm btn-primary">View</button>
                 <button class="btn btn-sm btn-danger">Delete</button>
