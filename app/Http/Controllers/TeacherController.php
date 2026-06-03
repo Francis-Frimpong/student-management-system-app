@@ -125,6 +125,16 @@ class TeacherController extends Controller
           return redirect()->back()->with('success', 'Assignment created successfully');
     }
 
+    public function messages()
+    {
+        return view('teacher.messages');
+    }
+
+    public function composeMessage()
+    {
+        return view('teacher.composeMessage');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

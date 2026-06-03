@@ -76,7 +76,7 @@
   </ul>
    <!-- ✅ NEW INBOX SECTION -->
         <li class="nav-item mb-2">
-          <a href="{{ route('admin.messages') }}" class="nav-link text-white">
+          <a href="{{ route('teacher.messages') }}" class="nav-link text-white">
             Inbox
             <!-- optional badge -->
              @if($unreadCount > 0)

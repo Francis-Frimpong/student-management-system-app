@@ -35,6 +35,10 @@ Route::prefix('teacher')
     Route::get('/students','students')->name('students')->middleware('role:teacher');
     Route::get('/attendance','attendance')->name('attendance')->middleware('role:teacher');
 
+    Route::get('/messages', 'messages')->name('messages')->middleware('role:teacher');
+
+    Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:teacher');
+
     Route::post('/attendance','storeattendance')->name('attendance.storeattendance')->middleware('role:teacher');
 
     Route::get('/assignments','assignments')->name('assignments')->middleware('role:teacher');
