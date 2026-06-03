@@ -267,7 +267,10 @@ class AdminController extends Controller
 
     public function sentMessage()
     {
-        return view('admin.sentMessage');
+        $messages = Messages::with('receiver')
+        ->where('sender_id', Auth::id())
+        ->get();
+        return view('admin.sentMessage', compact('messages'));
     }
    
 }
