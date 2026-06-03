@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Messages;
 use App\Models\Students;
 use App\Models\User;
 use App\Models\SchoolClass;
@@ -235,7 +237,26 @@ class AdminController extends Controller
         $users = DB::table('users')
             ->whereIn('role', ['parent', 'teacher'])
             ->get();
+
+       
         return view('admin.composeMessage', compact('users'));
+
+    }
+
+    public function storeMessage(Request $request)
+    {
+         $request->validate([
+            'receiver_id' => 'required',
+            'message' => 'required'
+        ]);
+
+        Messages::create([
+            'sender_id' => Auth::id(),
+            'receiver_id' => $request->receiver_id,
+            'message' => $request->message
+        ]);
+
+        return redirect()->route('admin.messages');
 
     }
 

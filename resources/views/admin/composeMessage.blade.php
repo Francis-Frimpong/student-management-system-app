@@ -17,13 +17,14 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('admin.storeMessage') }}">
+                    @csrf
 
                     <!-- Recipient -->
                     <div class="mb-3">
                         <label class="form-label">Send To</label>
 
-                        <select class="form-select">
+                        <select class="form-select" name="receiver_id">
                             <option selected disabled>
                                 --- Select Recipient ---
                             </option>
@@ -39,16 +40,7 @@
                         </select>
                     </div>
 
-                    <!-- Subject -->
-                    <div class="mb-3">
-                        <label class="form-label">Subject</label>
-
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter message subject">
-                    </div>
-
+            
                     <!-- Message -->
                     <div class="mb-3">
                         <label class="form-label">Message</label>
@@ -56,6 +48,7 @@
                         <textarea
                             class="form-control"
                             rows="8"
+                            name="message"
                             placeholder="Type your message here..."></textarea>
                     </div>
 
