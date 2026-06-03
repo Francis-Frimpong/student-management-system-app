@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\Messages;
 use App\Models\Students;
 use App\Models\Attendance;
 use App\Models\Assignments;
@@ -132,9 +134,28 @@ class TeacherController extends Controller
 
     public function composeMessage()
     {
-        return view('teacher.composeMessage');
+         $users = DB::table('users')
+            ->whereIn('role', ['parent', 'admin'])
+            ->get();
+
+        return view('teacher.composeMessage', compact('users'));
     }
 
+     public function storeMessage(Request $request)
+    {
+         $request->validate([
+            'receiver_id' => 'required',
+            'message' => 'required'
+        ]);
+
+        Messages::create([
+            'sender_id' => Auth::id(),
+            'receiver_id' => $request->receiver_id,
+            'message' => $request->message
+        ]);
+
+        return redirect()->route('teacher.messages');
+    }
     /**
      * Show the form for creating a new resource.
      */

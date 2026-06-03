@@ -39,6 +39,8 @@ Route::prefix('teacher')
 
     Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:teacher');
 
+     Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:teacher');
+
     Route::post('/attendance','storeattendance')->name('attendance.storeattendance')->middleware('role:teacher');
 
     Route::get('/assignments','assignments')->name('assignments')->middleware('role:teacher');

@@ -17,14 +17,14 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('teacher.storeMessage') }}">
                     @csrf
 
                     <!-- Recipient -->
                     <div class="mb-3">
                         <label class="form-label">Send To</label>
 
-                        {{-- <select class="form-select" name="receiver_id">
+                        <select class="form-select" name="receiver_id">
                             <option selected disabled>
                                 --- Select Recipient ---
                             </option>
@@ -37,7 +37,7 @@
                             @endforeach
 
                           
-                        </select> --}}
+                        </select>
                     </div>
 
             
