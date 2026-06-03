@@ -67,6 +67,12 @@
     .hidden {
       display: none;
     }
+
+    .badge-inbox {
+      background: red;
+      font-size: 10px;
+      margin-left: 6px;
+    }
   </style>
 </head>
 <body>
@@ -97,7 +103,7 @@
         </li>
       <!-- ✅ NEW SENT SECTION -->
       <li class="nav-item mb-2">
-        <a href="{{ route('admin.sentMessage')}}" class="nav-link text-white">
+        <a href="{{ route('teacher.sentMessage')}}" class="nav-link text-white">
           Sent
           <i class="bi bi-send-fill me-2"></i>
         </a>

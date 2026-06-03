@@ -228,7 +228,10 @@ class AdminController extends Controller
 
     public function messages()
     {
-        return view('admin.messages');
+        $messages = Messages::with('sender')
+        ->where('receiver_id', Auth::id())
+        ->get();
+        return view('admin.messages', compact('messages'));
         
     }
         

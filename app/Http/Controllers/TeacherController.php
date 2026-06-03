@@ -161,7 +161,14 @@ class TeacherController extends Controller
         return redirect()->route('teacher.messages');
     }
 
-    
+    public function sentMessage()
+    {
+         $messages = Messages::with('receiver')
+        ->where('sender_id', Auth::id())
+        ->get();
+        return view('teacher.sentMessage', compact('messages'));
+        
+    }
     /**
      * Show the form for creating a new resource.
      */
