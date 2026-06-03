@@ -129,7 +129,11 @@ class TeacherController extends Controller
 
     public function messages()
     {
-        return view('teacher.messages');
+         $messages = Messages::with('sender')
+        ->where('receiver_id', Auth::id())
+        ->get();
+
+        return view('teacher.messages', compact('messages'));
     }
 
     public function composeMessage()
@@ -156,6 +160,8 @@ class TeacherController extends Controller
 
         return redirect()->route('teacher.messages');
     }
+
+    
     /**
      * Show the form for creating a new resource.
      */

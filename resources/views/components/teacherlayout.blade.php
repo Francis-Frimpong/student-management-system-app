@@ -6,6 +6,7 @@
   <title>{{ isset($title) ? $title : 'dashboard' }}</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
@@ -39,7 +40,15 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+  }
+   .badge-read {
+      background: #28a745;
+    }
+
+    .badge-unread {
+      background: #ffc107;
+      color: black;
+    }
 
 .logout-section{
     margin-top: auto;
