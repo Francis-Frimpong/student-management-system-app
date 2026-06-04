@@ -41,7 +41,7 @@ Route::prefix('teacher')
 
      Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:teacher');
 
-      Route::get('/read', 'viewMessage')->name('viewMessage')->middleware('role:teacher');
+      Route::get('/read/{id}', 'viewMessage')->name('viewMessage')->middleware('role:teacher');
 
      Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:teacher');
 
@@ -81,7 +81,7 @@ Route::prefix('admin')
 
     Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:admin');
 
-    Route::get('/read', 'viewMessage')->name('viewMessage')->middleware('role:admin');
+    Route::get('/read/{id}', 'viewMessage')->name('viewMessage')->middleware('role:admin');
 
 
     Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:admin');

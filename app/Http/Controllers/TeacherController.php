@@ -170,9 +170,10 @@ class TeacherController extends Controller
         
     }
 
-    public function viewMessage()
+    public function viewMessage(string $id)
     {
-        return view('teacher.viewMessage');
+         $message = Messages::findOrFail($id);
+        return view('teacher.viewMessage' ,compact('message'));
     }
     /**
      * Show the form for creating a new resource.

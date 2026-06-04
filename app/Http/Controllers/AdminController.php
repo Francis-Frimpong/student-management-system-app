@@ -263,9 +263,11 @@ class AdminController extends Controller
 
     }
 
-    public function viewMessage()
+    public function viewMessage( string $id)
     {
-        return view('admin.viewMessage');
+        $message = Messages::findOrFail($id);
+
+        return view('admin.viewMessage', compact('message'));
     }
 
     public function sentMessage()

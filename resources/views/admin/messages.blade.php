@@ -47,7 +47,7 @@
               <td><span class="badge {{ $message->status === 'unread' ? 'badge-unread' : 'badge-read' }}">{{$message->status}}</span></td>
               
               <td>
-                <a href="{{ route('admin.viewMessage') }}" class="btn btn-sm btn-primary">View</a>
+                <a href="{{ route('admin.viewMessage', $message->id) }}" class="btn btn-sm btn-primary">View</a>
                 <button class="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>
