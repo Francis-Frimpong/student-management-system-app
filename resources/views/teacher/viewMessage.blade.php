@@ -18,21 +18,18 @@
             <!-- Message Header -->
             <div class="mb-4">
 
-                <h4 class="mb-3">
-                    School Fees Reminder
-                </h4>
-
                 <div class="row">
 
                     <div class="col-md-6 mb-2">
                         <strong>From:</strong>
                         {{ $message->sender->name }}
+                        ({{ $message->sender->role }})
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>To:</strong>
                          {{ $message->receiver->name }}
-                        ({{ $message->receiver->role }})
+                        
                     </div>
 
                     <div class="col-md-6 mb-2">
@@ -56,19 +53,8 @@
 
             <!-- Message Content -->
             <div class="message-body mt-4">
+                {{ $message->message }}
 
-                Dear Parent,
-
-                This is a reminder that school fees for the next term are due on 15th June 2026.
-
-                Kindly ensure payment is made before the deadline to avoid any inconvenience.
-
-                If you have already completed payment, please disregard this message.
-
-                Thank you for your cooperation.
-
-                Regards,
-                School Administration
             </div>
 
             <hr class="my-4">
