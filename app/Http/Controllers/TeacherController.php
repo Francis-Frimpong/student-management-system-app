@@ -173,6 +173,15 @@ class TeacherController extends Controller
     public function viewMessage(string $id)
     {
          $message = Messages::findOrFail($id);
+         
+        if (
+            $message->receiver_id === Auth::id()
+            && $message->status === 'unread'
+        ) {
+            $message->update([
+                'status' => 'read'
+            ]);
+        }
         return view('teacher.viewMessage' ,compact('message'));
     }
     /**

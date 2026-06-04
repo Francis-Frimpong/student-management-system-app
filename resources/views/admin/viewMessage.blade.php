@@ -18,31 +18,29 @@
             <!-- Message Header -->
             <div class="mb-4">
 
-                <h4 class="mb-3">
-                    School Fees Reminder
-                </h4>
 
                 <div class="row">
 
                     <div class="col-md-6 mb-2">
                         <strong>From:</strong>
-                        Admin Office
+                        {{ $message->sender->name }}
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>To:</strong>
-                        John Doe (Parent)
+                        {{ $message->receiver->name }}
+                        ({{ $message->receiver->role }})
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>Date:</strong>
-                        31 May 2026, 09:30 AM
+                        {{ $message->created_at }}
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>Status:</strong>
                         <span class="badge bg-success">
-                            Read
+                            {{ $message->status }}
                         </span>
                     </div>
 
@@ -54,19 +52,7 @@
 
             <!-- Message Content -->
             <div class="message-body mt-4">
-
-                Dear Parent,
-
-                This is a reminder that school fees for the next term are due on 15th June 2026.
-
-                Kindly ensure payment is made before the deadline to avoid any inconvenience.
-
-                If you have already completed payment, please disregard this message.
-
-                Thank you for your cooperation.
-
-                Regards,
-                School Administration
+                {{ $message->message }}
             </div>
 
             <hr class="my-4">

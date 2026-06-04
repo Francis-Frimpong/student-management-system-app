@@ -48,6 +48,7 @@
               
               <td>
                 <a href="{{ route('admin.viewMessage', $message->id) }}" class="btn btn-sm btn-primary">View</a>
+                
                 <button class="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>

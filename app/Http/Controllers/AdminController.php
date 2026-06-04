@@ -265,7 +265,18 @@ class AdminController extends Controller
 
     public function viewMessage( string $id)
     {
+      
+
         $message = Messages::findOrFail($id);
+
+        if (
+            $message->receiver_id === Auth::id()
+            && $message->status === 'unread'
+        ) {
+            $message->update([
+                'status' => 'read'
+            ]);
+        }
 
         return view('admin.viewMessage', compact('message'));
     }

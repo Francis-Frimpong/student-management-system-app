@@ -9,7 +9,8 @@ class Messages extends Model
       protected $fillable = [
         'sender_id',
         'receiver_id',
-        'message'
+        'message',
+        'status'
     ];
 
     public function sender()

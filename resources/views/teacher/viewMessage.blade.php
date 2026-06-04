@@ -26,23 +26,25 @@
 
                     <div class="col-md-6 mb-2">
                         <strong>From:</strong>
-                        Admin Office
+                        {{ $message->sender->name }}
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>To:</strong>
-                        John Doe (Parent)
+                         {{ $message->receiver->name }}
+                        ({{ $message->receiver->role }})
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>Date:</strong>
-                        31 May 2026, 09:30 AM
+                        {{ $message->created_at }}
+                        
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <strong>Status:</strong>
                         <span class="badge bg-success">
-                            Read
+                            {{ $message->status }}
                         </span>
                     </div>
 
