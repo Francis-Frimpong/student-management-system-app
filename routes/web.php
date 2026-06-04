@@ -41,6 +41,8 @@ Route::prefix('teacher')
 
      Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:teacher');
 
+      Route::get('/read', 'viewMessage')->name('viewMessage')->middleware('role:teacher');
+
      Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:teacher');
 
     Route::post('/attendance','storeattendance')->name('attendance.storeattendance')->middleware('role:teacher');

@@ -169,6 +169,11 @@ class TeacherController extends Controller
         return view('teacher.sentMessage', compact('messages'));
         
     }
+
+    public function viewMessage()
+    {
+        return view('teacher.viewMessage');
+    }
     /**
      * Show the form for creating a new resource.
      */
