@@ -86,9 +86,6 @@
   <a href="{{ route('teacher.attendance') }}">Attendance</a>
   <a href="{{ route('teacher.assignments') }}">Assignments</a>
 
-  <ul>
-    
-  </ul>
    <!-- ✅ NEW INBOX SECTION -->
         <li class="nav-item mb-2">
           <a href="{{ route('teacher.messages') }}" class="nav-link text-white">

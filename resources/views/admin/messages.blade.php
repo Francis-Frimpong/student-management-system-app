@@ -5,7 +5,7 @@
       <!-- Header -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h3>Inbox</h3>
-    <a href="{{ route('teacher.composeMessage')}}" class="btn btn-primary btn-sm">Compose Message</a>
+    <a href="{{ route('admin.composeMessage')}}" class="btn btn-primary btn-sm">Compose Message</a>
   </div>
 
   <!-- Inbox Card -->

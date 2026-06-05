@@ -7,6 +7,8 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <style>
     body {
       margin: 0;
@@ -73,6 +75,26 @@
   <a href="{{ route('parent.children') }}">My Children</a>
   <a href="{{ route('parent.attendance') }}">Attendance</a>
   <a href="{{ route('parent.message') }}">Messages</a>
+
+    <!-- ✅ NEW INBOX SECTION -->
+        <li class="nav-item mb-2">
+          <a href="" class="nav-link text-white">
+            Inbox
+            <!-- optional badge -->
+             @if($unreadCount > 0)
+                <span class="badge bg-danger">
+                    {{ $unreadCount }}
+                </span>
+            @endif
+          </a>
+        </li>
+      <!-- ✅ NEW SENT SECTION -->
+      <li class="nav-item mb-2">
+        <a href="" class="nav-link text-white">
+          Sent
+          <i class="bi bi-send-fill me-2"></i>
+        </a>
+      </li>
 
   <!-- Logout Button -->
   <div class="logout-section">
