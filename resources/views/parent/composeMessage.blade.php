@@ -17,7 +17,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('parent.storeMessage') }}">
                     @csrf
 
                     <!-- Recipient -->

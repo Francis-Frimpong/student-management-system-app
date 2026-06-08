@@ -67,6 +67,22 @@ class ParentController extends Controller
         return view('parent.composeMessage', compact('users'));
     }
 
+    public function storeMessage(Request $request)
+    {
+         $request->validate([
+            'receiver_id' => 'required',
+            'message' => 'required'
+        ]);
+
+        Messages::create([
+            'sender_id' => Auth::id(),
+            'receiver_id' => $request->receiver_id,
+            'message' => $request->message
+        ]);
+
+        return redirect()->route('parent.message');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
