@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Students;
 use App\Models\Messages;
 
@@ -55,6 +56,15 @@ class ParentController extends Controller
         ->get();
         return view('parent.message', compact('messages'));
         
+    }
+
+    public function composeMessage()
+    {
+        $users = DB::table('users')
+        ->whereIn('role',['teacher'])
+        ->get();
+
+        return view('parent.composeMessage', compact('users'));
     }
 
     /**
