@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Students;
+use App\Models\Messages;
 
 
 class ParentController extends Controller
@@ -49,7 +50,10 @@ class ParentController extends Controller
     }
     public function message()
     {
-        return view('parent.message');
+         $messages = Messages::with('sender')
+        ->where('receiver_id', Auth::id())
+        ->get();
+        return view('parent.message', compact('messages'));
         
     }
 

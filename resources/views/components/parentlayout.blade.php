@@ -74,11 +74,10 @@
   <a href="{{ route('parent.dashboard') }}">Dashboard</a>
   <a href="{{ route('parent.children') }}">My Children</a>
   <a href="{{ route('parent.attendance') }}">Attendance</a>
-  <a href="{{ route('parent.message') }}">Messages</a>
 
     <!-- ✅ NEW INBOX SECTION -->
         <li class="nav-item mb-2">
-          <a href="" class="nav-link text-white">
+          <a href="{{ route('parent.message') }}" class="nav-link text-white">
             Inbox
             <!-- optional badge -->
              @if($unreadCount > 0)

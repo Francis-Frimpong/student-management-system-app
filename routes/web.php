@@ -22,7 +22,6 @@ Route::prefix('parent')
     Route::get('/children', 'children')->name('children')->middleware('role:parent');
     Route::get('/attendance', 'attendance')->name('attendance')->middleware('role:parent');
     Route::get('/message', 'message')->name('message')->middleware('role:parent');
-
 });
 
 // Teacher routes (Grouped)
