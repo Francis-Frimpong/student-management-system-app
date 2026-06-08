@@ -11,10 +11,6 @@
 
   <!-- Inbox Card -->
   <div class="card shadow-sm">
-
-    
-    
-      
       
       <!-- Messages Table -->
       <table class="table table-hover align-middle">

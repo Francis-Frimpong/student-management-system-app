@@ -64,6 +64,14 @@
     .child-card {
       border-left: 5px solid #0d6efd;
     }
+    .badge-read {
+      background: #28a745;
+    }
+
+    .badge-unread {
+      background: #ffc107;
+      color: black;
+    }
   </style>
 </head>
 <body>
