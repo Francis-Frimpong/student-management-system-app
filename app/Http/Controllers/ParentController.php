@@ -91,6 +91,22 @@ class ParentController extends Controller
         return view('parent.sentMessage', compact('messages'));
     }
 
+    public function viewMessage(string $id)
+    {
+        $message = Messages::findOrFail($id);
+
+        if(
+            $message->receiver_id === Auth::id()
+            && $message->status === 'unread'
+        ){
+            $message->update([
+                'status' => 'read'
+            ]);
+            }
+            return view('parent.viewMessage', compact('message'));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      */
