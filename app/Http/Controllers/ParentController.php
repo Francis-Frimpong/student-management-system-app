@@ -83,6 +83,14 @@ class ParentController extends Controller
         return redirect()->route('parent.message');
     }
 
+    public function sentMessage()
+    {
+        $messages = Messages::with('receiver')
+        ->where('sender_id', Auth::id())
+        ->get();
+        return view('parent.sentMessage', compact('messages'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

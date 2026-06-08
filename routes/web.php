@@ -27,6 +27,9 @@ Route::prefix('parent')
     Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:parent');
 
     Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:parent');
+
+    
+     Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:parent');
 });
 
 // Teacher routes (Grouped)
