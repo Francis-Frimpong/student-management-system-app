@@ -29,7 +29,7 @@
                                 --- Select Recipient ---
                             </option>
                             @foreach ($users as $user)
-                            <option value="{{ $user->id }}">
+                            <option value="{{ $user->id }}" {{ isset($receiverId) && $receiverId == $user->id ? 'selected': '' }}>
                                 {{ $user->name}}
                                 ({{ $user->role }})
                             </option>

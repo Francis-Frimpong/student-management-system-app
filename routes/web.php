@@ -24,7 +24,7 @@ Route::prefix('parent')
 
     Route::get('/message', 'message')->name('message')->middleware('role:parent');
 
-    Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:parent');
+    Route::get('/compose/{receiverId?}', 'composeMessage')->name('composeMessage')->middleware('role:parent');
 
     Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:parent');
 
@@ -45,7 +45,7 @@ Route::prefix('teacher')
 
     Route::get('/messages', 'messages')->name('messages')->middleware('role:teacher');
 
-    Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:teacher');
+    Route::get('/compose/{receiverId?}', 'composeMessage')->name('composeMessage')->middleware('role:teacher');
 
      Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:teacher');
 

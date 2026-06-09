@@ -58,13 +58,13 @@ class ParentController extends Controller
         
     }
 
-    public function composeMessage()
+    public function composeMessage($receiverId = null)
     {
         $users = DB::table('users')
         ->whereIn('role',['teacher'])
         ->get();
 
-        return view('parent.composeMessage', compact('users'));
+        return view('parent.composeMessage', compact('users', 'receiverId'));
     }
 
     public function storeMessage(Request $request)
