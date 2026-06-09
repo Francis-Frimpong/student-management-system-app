@@ -136,13 +136,13 @@ class TeacherController extends Controller
         return view('teacher.messages', compact('messages'));
     }
 
-    public function composeMessage()
+    public function composeMessage($receiverId = null)
     {
          $users = DB::table('users')
             ->whereIn('role', ['parent', 'admin'])
             ->get();
 
-        return view('teacher.composeMessage', compact('users'));
+        return view('teacher.composeMessage', compact('users', 'receiverId'));
     }
 
      public function storeMessage(Request $request)
