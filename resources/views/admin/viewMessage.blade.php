@@ -60,9 +60,9 @@
             <!-- Actions -->
             <div class="d-flex gap-2">
 
-                <button class="btn btn-primary">
+                <a href="{{  route('admin.composeMessage', $message->sender->id) }}" class="btn btn-primary">
                     Reply
-                </button>
+                </a>
 
                 <button class="btn btn-danger">
                     Delete

@@ -85,7 +85,8 @@ Route::prefix('admin')
     // messages route
     Route::get('/messages', 'messages')->name('messages')->middleware('role:admin');
 
-    Route::get('/compose', 'composeMessage')->name('composeMessage')->middleware('role:admin');
+
+    Route::get('/compose/{receiverId?}', 'composeMessage')->name('composeMessage')->middleware('role:admin');
 
     Route::post('/storeMessage', 'storeMessage')->name('storeMessage')->middleware('role:admin');
 
