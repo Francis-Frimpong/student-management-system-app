@@ -94,6 +94,8 @@ Route::prefix('admin')
 
 
     Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:admin');
+
+     Route::delete('/messages/{id}', 'deleteMessage')->name('deleteMessage')->middleware('role:admin');
     
     Route::get('/edituser/{id}', 'edit')->name('edit')->middleware('role:admin');
 

@@ -290,5 +290,13 @@ class AdminController extends Controller
         ->get();
         return view('admin.sentMessage', compact('messages'));
     }
+
+    public function deleteMessage(string $id)
+    {
+        $messages = Messages::findOrFail($id);
+        $messages->delete();
+
+        return redirect()->route('admin.messages');
+    }
    
 }
