@@ -64,9 +64,17 @@
                     Reply
                 </a>
 
-                <button class="btn btn-danger">
-                    Delete
-                </button>
+                 {{-- delete message --}}
+                <form method="POST" 
+                    action="{{ route('parent.deleteMessage', $message->id) }}" 
+                    class="d-inline">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
 
             </div>
 

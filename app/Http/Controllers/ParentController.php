@@ -107,6 +107,14 @@ class ParentController extends Controller
 
     }
 
+    public function deleteMessage(string $id)
+    {
+        $messages = Messages::findOrFail($id);
+        $messages->delete();
+
+        return redirect()->route('parent.message');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

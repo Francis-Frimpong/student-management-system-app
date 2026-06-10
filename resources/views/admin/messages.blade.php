@@ -49,15 +49,16 @@
               <td>
                 <a href="{{ route('admin.viewMessage', $message->id) }}" class="btn btn-sm btn-primary">View</a>
 
+                {{-- delete message --}}
                 <form method="POST" 
-                      action="{{ route('admin.deleteMessage', $message->id) }}" 
-                      class="d-inline">
-                      @csrf
-                      @method('DELETE')
+                  action="{{ route('admin.deleteMessage', $message->id) }}" 
+                  class="d-inline">
+                  @csrf
+                  @method('DELETE')
 
-                      <button class="btn btn-sm btn-danger">
-                          Delete
-                      </button>
+                  <button class="btn btn-sm btn-danger">
+                      Delete
+                  </button>
                 </form>
               
               </td>

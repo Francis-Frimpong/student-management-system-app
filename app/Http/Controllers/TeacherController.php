@@ -190,7 +190,7 @@ class TeacherController extends Controller
         $messages = Messages::findOrFail($id);
         $messages->delete();
 
-        return redirect()->route('admin.messages');
+        return redirect()->route('teacher.messages');
     }
     /**
      * Show the form for creating a new resource.
