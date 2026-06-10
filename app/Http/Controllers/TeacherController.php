@@ -184,6 +184,14 @@ class TeacherController extends Controller
         }
         return view('teacher.viewMessage' ,compact('message'));
     }
+
+    public function deleteMessage(string $id)
+    {
+        $messages = Messages::findOrFail($id);
+        $messages->delete();
+
+        return redirect()->route('admin.messages');
+    }
     /**
      * Show the form for creating a new resource.
      */

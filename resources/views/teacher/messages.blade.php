@@ -48,7 +48,18 @@
               
               <td>
                 <a href="{{ route('teacher.viewMessage', $message->id) }}" class="btn btn-sm btn-primary">View</a>
-                <button class="btn btn-sm btn-danger">Delete</button>
+
+                {{-- delete message --}}
+                <form method="POST" 
+                  action="{{ route('teacher.deleteMessage', $message->id) }}" 
+                  class="d-inline">
+                  @csrf
+                  @method('DELETE')
+
+                  <button class="btn btn-sm btn-danger">
+                      Delete
+                  </button>
+                </form>
               </td>
             </tr>
             @endforeach

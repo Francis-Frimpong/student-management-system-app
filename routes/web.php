@@ -31,6 +31,8 @@ Route::prefix('parent')
      Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:parent');
 
     Route::get('/read/{id}', 'viewMessage')->name('viewMessage')->middleware('role:parent');
+
+     Route::delete('/messages/{id}', 'deleteMessage')->name('deleteMessage')->middleware('role:parent');
 });
 
 // Teacher routes (Grouped)
@@ -52,6 +54,8 @@ Route::prefix('teacher')
       Route::get('/read/{id}', 'viewMessage')->name('viewMessage')->middleware('role:teacher');
 
      Route::get('/sent', 'sentMessage')->name('sentMessage')->middleware('role:teacher');
+
+      Route::delete('/messages/{id}', 'deleteMessage')->name('deleteMessage')->middleware('role:teacher');
 
     Route::post('/attendance','storeattendance')->name('attendance.storeattendance')->middleware('role:teacher');
 
