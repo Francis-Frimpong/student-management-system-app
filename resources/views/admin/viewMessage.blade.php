@@ -64,9 +64,16 @@
                     Reply
                 </a>
 
-                <button class="btn btn-danger">
-                    Delete
-                </button>
+               <form method="POST" 
+                    action="{{ route('admin.deleteMessage', $message->id) }}" 
+                    class="d-inline">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="btn  btn-danger">
+                        Delete
+                    </button>
+                </form>
 
             </div>
 
